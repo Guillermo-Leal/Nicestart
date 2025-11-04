@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/login"
+    android:id="@+id/signup"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@drawable/gradient">
+    android:background="@drawable/gradient2">
     <ImageView
         android:id="@+id/logo"
         android:layout_width="80dp"
@@ -46,7 +45,7 @@
             android:background="@android:color/white"
             android:drawableLeft="@drawable/usericon"
             android:hint="Username"
-           />
+            />
     </com.google.android.material.textfield.TextInputLayout>
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/til2"
@@ -66,28 +65,45 @@
             android:alpha="0.6"
             android:background="@android:color/white"
             android:drawableLeft="@drawable/password"
-
             android:hint="Password"/>
     </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintRight_toRightOf="@id/guideline2"
+        app:layout_constraintLeft_toLeftOf="@id/guideline1"
+        app:layout_constraintTop_toBottomOf="@id/til2"
+        app:hintMaxLines="1"
+        app:startIconDrawable="@drawable/email"
+        >
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:alpha="0.6"
+            android:background="@android:color/white"
+            android:drawableLeft="@drawable/password"
+            android:hint="Email"/>
+    </com.google.android.material.textfield.TextInputLayout>
     <Button
-        android:id="@+id/LoginButton"
+        android:id="@+id/button1"
         android:layout_width="0dp"
 
         style="@style/button"
-        android:onClick="openMain"
         app:layout_constraintLeft_toLeftOf="@id/guideline1"
         app:layout_constraintRight_toRightOf="@id/guideline2"
-        app:layout_constraintTop_toBottomOf="@id/til2"
+        app:layout_constraintTop_toBottomOf="@id/til3"
         android:backgroundTint="@color/buttoncustom"
         android:textColor="@android:color/black"
-        android:text="@string/Login"/>
+        android:text="@string/Signup"/>
     <Button
-        android:id="@+id/SignupButton"
+        android:id="@+id/button2"
         android:layout_width="0dp"
-        android:onClick="openSignup"
+        android:onClick="openLogin"
         app:layout_constraintLeft_toLeftOf="@id/guideline1"
         app:layout_constraintRight_toRightOf="@id/guideline2"
-        app:layout_constraintTop_toBottomOf="@id/LoginButton"
-        android:text="@string/Signup"
+        app:layout_constraintTop_toBottomOf="@id/button1"
+        android:text="@string/Cancel"
         style="@style/buttonoutlined" />
 </androidx.constraintlayout.widget.ConstraintLayout>

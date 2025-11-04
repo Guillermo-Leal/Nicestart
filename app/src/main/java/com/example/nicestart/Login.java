@@ -23,10 +23,7 @@ import com.example.nicestart.databinding.ActivityLoginBinding;
 public class Login extends AppCompatActivity {
 
 
-    public void openMain(View v){
-        Intent intent = new Intent(Login.this, MainActivity.class);
-        startActivity(intent);
-    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,5 +34,15 @@ public class Login extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        }
+
+    }
+    public void openMain(View v){
+        Intent intent = new Intent(Login.this, MainActivity.class);
+        startActivity(intent);
+    }
+    public void openSignup(View v){
+        Intent intent = new Intent(Login.this, Signup.class);
+        startActivity(intent);
+    }
+
 }
