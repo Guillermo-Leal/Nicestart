@@ -1,4 +1,5 @@
-This **repository** is the creation of a page done in Juan de la Cierva School for the DAM2º education
+This **repository** is the creation of a page done in Juan de la Cierva School for the DAM2º education.
+
 Images of the pages that are being created while working on this proyect:
 
 Login page:
