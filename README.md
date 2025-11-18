@@ -6,6 +6,9 @@ Images of the pages that are being created while working on this proyect:
 ![login activity](img/login.png)
 **Signup page:**
 ![signup activity](img/signup.png)
+**Splash page:**
+
+**Profile page:**
 
 
 >This project is under creative common
