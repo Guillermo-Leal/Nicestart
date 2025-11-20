@@ -4,12 +4,10 @@ Images of the pages that are being created while working on this proyect:
 
 **Login page:**
 
-
 ![login activity](img/login.png)
 
 
 **Signup page:**
-
 
 ![signup activity](img/signup.png)
 
