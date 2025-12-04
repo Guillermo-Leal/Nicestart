@@ -1,5 +1,6 @@
 package com.example.nicestart;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.ContextMenu;
@@ -11,29 +12,82 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+
 public class MainActivity extends AppCompatActivity {
 
     private SwipeRefreshLayout swipeLayout;
-
+    private WebView nuestroVisorWeb;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
 
-        TextView mycontext = findViewById(R.id.mytext);
+        nuestroVisorWeb = (WebView) findViewById(R.id.wV);
+
+        String html = "<html>"+
+                "<head><style>"+
+                "html, body{margin:0; padding:0; Height:100%; overflow:hidden}"+
+                "img{ width:100%; height:100%; object-fit:cover;}"+
+                "</style></head/>"+
+                "<body>"+
+                "<img src = 'https://thispersondoesnotexist.com'/>"+
+                "</body></html>";
+
+        nuestroVisorWeb.loadDataWithBaseURL(null,html,"text/html","UTF-8",null);
+
+
+        WebView mycontext = findViewById(R.id.wV);
         registerForContextMenu(mycontext);
 
         swipeLayout = findViewById(R.id.swipe);
         swipeLayout.setOnRefreshListener(mOnRefreshListener);
     }
 
+    public void showAlertDialogButtonClicked(MainActivity mainActivity) {
+        MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(this);
+
+//        //el dialogo estandar tiene título/icono pero podemos sustituirlo por un XML a medida
+        builder.setTitle("Achtung!");
+        builder.setMessage("Where do you go?");
+        builder.setIcon(R.drawable.usericon);
+        builder.setCancelable(true);
+
+        builder.setPositiveButton("Scrolling", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Intent intent = new Intent(MainActivity.this, ScrollingActivity.class);
+                startActivity(intent);
+
+            }
+        });
+
+        builder.setNegativeButton("Do nothing", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
+
+        builder.setNeutralButton("Other", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                System.exit(0);
+            }
+        });
+
+        // create and show the alert dialog
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
     //implementar menu contextual
     @Override
     public void onCreateContextMenu(ContextMenu menu, View v,
@@ -62,21 +116,27 @@ public class MainActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.menu_appbar, menu);
         return true;
     }
-    /*@Override
-    public boolean onOptionsItemSelected(MenuItem menu){
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item){
         int id = item.getItemId();
-
-        if(id==R.id.Settings){
+           if(id==R.id.Settings){
             Toast toast = Toast.makeText(this, "Infecting", Toast.LENGTH_LONG);
             toast.show();
         }
-    }*/
+        if (id == R.id.LogOut) {
+            showAlertDialogButtonClicked(MainActivity.this);
+        }
+        return super.onOptionsItemSelected(item);
+    }
     protected SwipeRefreshLayout.OnRefreshListener
             mOnRefreshListener = new SwipeRefreshLayout.OnRefreshListener() {
         @Override
         public void onRefresh() {
             Toast toast0 = Toast.makeText(MainActivity.this, "Hi there! I don't exist :)", Toast.LENGTH_LONG);
            toast0.show();
+           swipeLayout.setRefreshing(false);
+
+           nuestroVisorWeb.reload();
            swipeLayout.setRefreshing(false);
         }
     };

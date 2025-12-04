@@ -7,6 +7,7 @@
         android:title="Settings"
         app:showAsAction="never" />
 
+
     <item
         android:id="@+id/Copy"
         android:title="Copy"
@@ -23,6 +24,11 @@
         <item
             android:id="@+id/BotNav"
             android:title="Bottom navigation"
+            app:showAsAction="never" />
+
+        <item
+            android:id="@+id/LogOut"
+            android:title="Log Out"
             app:showAsAction="never" />
 
     </menu>
