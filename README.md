@@ -26,6 +26,7 @@ Images of the pages that are being created while working on this proyect:
 
 **Main page:**
 
+
 ![main activity](img/main.png)
 
 
