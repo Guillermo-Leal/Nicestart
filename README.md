@@ -24,10 +24,17 @@ Images of the pages that are being created while working on this proyect:
 ![profile activity](img/profile.png)
 
 
-**Some menus done for the app**
+**Main page:**
+
+![main activity](img/main.png)
 
 
-![menus images](img/menus.png)
+**LogOut Menu**
+
+
+![menus images](img/logout.png)
+
+
 
 >This project is under creative common
 >[Creativecommons Org Licensed By Sa 4](https://creativecommons.org/licenses/by-sa/4.0)

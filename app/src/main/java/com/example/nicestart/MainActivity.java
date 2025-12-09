@@ -56,28 +56,19 @@ public class MainActivity extends AppCompatActivity {
         MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(this);
 
 //        //el dialogo estandar tiene título/icono pero podemos sustituirlo por un XML a medida
-        builder.setTitle("Achtung!");
-        builder.setMessage("Where do you go?");
+        builder.setTitle("¿Quieres salir de la aplicacion?");
+        builder.setMessage("Si lo haces me pondre troste");
         builder.setIcon(R.drawable.usericon);
         builder.setCancelable(true);
 
-        builder.setPositiveButton("Scrolling", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                Intent intent = new Intent(MainActivity.this, ScrollingActivity.class);
-                startActivity(intent);
-
-            }
-        });
-
-        builder.setNegativeButton("Do nothing", new DialogInterface.OnClickListener() {
+        builder.setNegativeButton("No quiero", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
 
             }
         });
 
-        builder.setNeutralButton("Other", new DialogInterface.OnClickListener() {
+        builder.setNeutralButton("Salir", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 System.exit(0);
