@@ -1,7 +1,23 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.Nicestart" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your dark theme here. -->
-        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+    <style name="Base.Theme.Nicestart" parent="Theme.Material3.DayNight">
+        <item name="colorPrimary">@color/Fucsia</item>
+        <item name="colorPrimaryVariant">@color/Morado</item>
+        <item name="colorOnPrimary">@android:color/white</item>
+        <item name="colorSecondary">@color/Naranja</item>
+        <item name="colorSecondaryVariant">@color/Rojo</item>
+        <item name="colorOnSecondary">@color/Azul</item>
+    </style>
+
+    <style name="Theme.Nicestart.NoActionBar" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
+
+    <style name="Theme.Nicestart.ActionBar" parent="Theme.MaterialComponents.DayNight">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="actionBarStyle">@style/TransparentActionBar</item>
+    </style>
+    <style name="TransparentActionBar" parent="Widget.AppCompat.ActionBar">
+        <item name="background">@android:color/transparent</item>
     </style>
 </resources>
