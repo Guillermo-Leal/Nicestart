@@ -52,6 +52,12 @@ public class MainActivity extends AppCompatActivity {
         swipeLayout.setOnRefreshListener(mOnRefreshListener);
     }
 
+    //implementar menu contextual
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v,
+                                    ContextMenu.ContextMenuInfo menuInfo) {
+        getMenuInflater().inflate(R.menu.menu_context, menu);
+    }
     public void showAlertDialogButtonClicked(MainActivity mainActivity) {
         MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(this);
 
@@ -79,12 +85,7 @@ public class MainActivity extends AppCompatActivity {
         AlertDialog dialog = builder.create();
         dialog.show();
     }
-    //implementar menu contextual
-    @Override
-    public void onCreateContextMenu(ContextMenu menu, View v,
-                                    ContextMenu.ContextMenuInfo menuInfo) {
-        getMenuInflater().inflate(R.menu.menu_context, menu);
-    }
+
 
     @Override
     public boolean onContextItemSelected(MenuItem item) {
@@ -113,6 +114,8 @@ public class MainActivity extends AppCompatActivity {
            if(id==R.id.Settings){
             Toast toast = Toast.makeText(this, "Infecting", Toast.LENGTH_LONG);
             toast.show();
+            Intent intent = new Intent(MainActivity.this, main_bab.class);
+            startActivity(intent);
         }
         if (id == R.id.LogOut) {
             showAlertDialogButtonClicked(MainActivity.this);
